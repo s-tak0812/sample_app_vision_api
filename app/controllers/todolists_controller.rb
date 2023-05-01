@@ -10,10 +10,15 @@ class TodolistsController < ApplicationController
 
     list.save
 
-    tags = Vision.get_image_data(list.image)
-    tags.each do |tag|
-      list.tags.create(name: tag)
+    if list.image.present?
+      tags = Vision.get_image_data(list.image)
+      tags.each do |tag|
+        unless Tag.search_for(tag).present?
+          list.tags.create(name: tag)
+        end
+      end
     end
+
     redirect_to todolist_path(list.id)
   end
 
@@ -31,6 +36,7 @@ class TodolistsController < ApplicationController
 
   def update
     list = List.find(params[:id])
+    list.score = Language.get_data(list_params[:body])
     list.update(list_params)
     redirect_to todolist_path(list.id)
   end
@@ -39,6 +45,11 @@ class TodolistsController < ApplicationController
     list = List.find(params[:id])
     list.destroy
     redirect_to todolists_path
+  end
+
+  def search
+    @content = params[:content]
+    @records = Tag.search_for(@content)
   end
 
   private

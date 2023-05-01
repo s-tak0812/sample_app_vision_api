@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'todolists/search' => 'todolists#search', as: 'search_todolist'
   get 'todolists/new'
   get 'top' => 'homes#top'
   post 'todolists' => 'todolists#create'

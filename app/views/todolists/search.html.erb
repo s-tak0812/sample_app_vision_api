@@ -1,0 +1,7 @@
+<% @records.each do |tag| %>
+  <ul>
+    <li>
+      <%= link_to List.find(tag.list_id).title, todolist_path(tag.list_id) %>
+    </li>
+  </ul>
+<% end %>

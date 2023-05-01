@@ -22,7 +22,10 @@ module Vision
             {
               type: 'LABEL_DETECTION'
             }
-          ]
+          ],
+          imageContext: {
+            languageHints: ["ja"]
+          }
         }]
       }.to_json
 
@@ -38,7 +41,7 @@ module Vision
       if (error = response_body['responses'][0]['error']).present?
         raise error['message']
       else
-        response_body['responses'][0]['labelAnnotations'].pluck('description').take(3)
+        response_body['responses'][0]['labelAnnotations'].pluck('description').take(2)
       end
     end
   end
