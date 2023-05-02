@@ -107,6 +107,8 @@ main {
   border-radius: .25em;
 }
 
+
+/*topの棒人間*/
 .stick-figure {
   position: relative;
   width: 100px;

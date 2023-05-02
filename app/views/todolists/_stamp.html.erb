@@ -1,0 +1,7 @@
+  <%= list.score %>
+
+  <% if list.score <= 1.0 && list.score > 0.0 %>
+    <span class="good">〇</span>
+  <% elsif list.score <= 0.0 %>
+    <span>so bad</span>
+  <% end %>
