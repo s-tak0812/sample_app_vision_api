@@ -106,3 +106,66 @@ main {
   vertical-align: baseline;
   border-radius: .25em;
 }
+
+.stick-figure {
+  position: relative;
+  width: 100px;
+  height: 200px;
+}
+
+.stick-figure > div {
+  position: absolute;
+  background-color: black;
+}
+
+.head {
+  top: 0;
+  left: 35px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.body {
+  top: 30px;
+  left: 50%;
+  width: 10px;
+  height: 90px;
+  margin-left: -5px;
+}
+
+.arm.left {
+  top: 40px;
+  left: 0;
+  width: 10px;
+  height: 50px;
+  transform-origin: top;
+  transform: rotate(45deg);
+}
+
+.arm.right {
+  top: 40px;
+  right: 0;
+  width: 10px;
+  height: 50px;
+  transform-origin: top;
+  transform: rotate(-45deg);
+}
+
+.leg.left {
+  top: 120px;
+  left: 0;
+  width: 10px;
+  height: 70px;
+  transform-origin: top;
+  transform: rotate(45deg);
+}
+
+.leg.right {
+  top: 120px;
+  right: 0;
+  width: 10px;
+  height: 70px;
+  transform-origin: top;
+  transform: rotate(-45deg);
+}
